@@ -1,6 +1,7 @@
 'use client';
 
 import { createContext, useContext, useState, useEffect, ReactNode } from 'react';
+import GlobalStyles from './GlobalStyles';
 
 interface ThemeContextType {
   isDark: boolean;
@@ -36,6 +37,7 @@ export function ThemeProvider({ children }: ThemeProviderProps) {
 
   return (
     <ThemeContext.Provider value={{ isDark, toggleTheme }}>
+      <GlobalStyles />
       {children}
     </ThemeContext.Provider>
   );
