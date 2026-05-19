@@ -142,10 +142,10 @@ const Header: React.FC<HeaderProps> = ({ isDark, onThemeToggle }) => (
   <motion.header
     initial={{ opacity: 0, y: -20 }}
     animate={{ opacity: 1, y: 0 }}
-    className={`fixed top-0 left-0 right-0 z-40 backdrop-blur-md border-b ${
+    className={`fixed top-0 left-0 right-0 z-40 backdrop-blur-xl border-b ${
       isDark
-        ? 'bg-slate-900/40 border-cyan-500/20'
-        : 'bg-white/40 border-gray-300/20'
+        ? 'bg-slate-950/80 border-cyan-500/30 shadow-lg shadow-cyan-500/10'
+        : 'bg-white/80 border-gray-300/30 shadow-lg shadow-gray-300/20'
     }`}
   >
     <div className="max-w-4xl mx-auto px-4 py-3 flex items-center justify-between">
@@ -155,9 +155,9 @@ const Header: React.FC<HeaderProps> = ({ isDark, onThemeToggle }) => (
         className="flex items-center gap-3 cursor-pointer"
       >
         <div
-          className={`w-10 h-10 rounded-full border-2 ${
-            isDark ? 'border-cyan-500 bg-slate-800' : 'border-blue-500 bg-blue-50'
-          } flex items-center justify-center font-bold text-sm`}
+          className={`w-10 h-10 rounded-full border-2 shadow-lg ${
+            isDark ? 'border-cyan-500 bg-gradient-to-br from-cyan-500 to-blue-600' : 'border-blue-500 bg-gradient-to-br from-blue-500 to-blue-600'
+          } flex items-center justify-center font-bold text-sm text-white`}
         >
           A
         </div>
@@ -176,10 +176,10 @@ const Header: React.FC<HeaderProps> = ({ isDark, onThemeToggle }) => (
         whileHover={{ scale: 1.1 }}
         whileTap={{ scale: 0.95 }}
         onClick={onThemeToggle}
-        className={`p-2 rounded-lg backdrop-blur-md transition-colors ${
+        className={`p-2 rounded-xl backdrop-blur-xl transition-all shadow-lg ${
           isDark
-            ? 'bg-slate-800/60 hover:bg-slate-700/60 text-cyan-400'
-            : 'bg-white/60 hover:bg-gray-100/60 text-yellow-600'
+            ? 'bg-slate-800/80 hover:bg-slate-700/80 text-cyan-400 hover:shadow-cyan-500/20'
+            : 'bg-white/80 hover:bg-gray-100/80 text-yellow-600 hover:shadow-yellow-500/20'
         }`}
       >
         {isDark ? <Sun size={18} /> : <Moon size={18} />}
@@ -251,10 +251,10 @@ const HeroSection: React.FC<HeroSectionProps> = ({ isDark }) => (
       <motion.button
         whileHover={{ scale: 1.05, y: -2 }}
         whileTap={{ scale: 0.95 }}
-        className={`px-8 py-3 rounded-lg font-semibold backdrop-blur-md border-2 transition-all ${
+        className={`px-8 py-4 rounded-2xl font-bold backdrop-blur-xl border-2 transition-all shadow-lg ${
           isDark
-            ? 'bg-cyan-500/20 border-cyan-400 text-cyan-300 hover:bg-cyan-500/30'
-            : 'bg-blue-500/20 border-blue-400 text-blue-600 hover:bg-blue-500/30'
+            ? 'bg-cyan-500/30 border-cyan-400 text-cyan-300 hover:bg-cyan-500/50 hover:shadow-cyan-500/30'
+            : 'bg-blue-500/30 border-blue-400 text-blue-600 hover:bg-blue-500/50 hover:shadow-blue-400/30'
         }`}
       >
         <div className="flex items-center gap-2">
@@ -266,10 +266,10 @@ const HeroSection: React.FC<HeroSectionProps> = ({ isDark }) => (
       <motion.button
         whileHover={{ scale: 1.05, y: -2 }}
         whileTap={{ scale: 0.95 }}
-        className={`px-8 py-3 rounded-lg font-semibold backdrop-blur-md border-2 transition-all ${
+        className={`px-8 py-4 rounded-2xl font-bold backdrop-blur-xl border-2 transition-all shadow-lg ${
           isDark
-            ? 'bg-slate-800/60 border-slate-600 text-slate-200 hover:bg-slate-700/60'
-            : 'bg-gray-200/60 border-gray-300 text-gray-700 hover:bg-gray-300/60'
+            ? 'bg-slate-700/60 border-slate-500 text-slate-200 hover:bg-slate-600/80 hover:shadow-slate-500/30'
+            : 'bg-gray-200/80 border-gray-300 text-gray-700 hover:bg-gray-300/80 hover:shadow-gray-400/30'
         }`}
       >
         <div className="flex items-center gap-2">
@@ -319,22 +319,22 @@ const TechStack: React.FC<TechStackProps> = ({ isDark }) => (
         variants={containerVariants}
         initial="hidden"
         whileInView="visible"
-        className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-3"
+        className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4"
       >
         {TECH_SKILLS.map((skill) => (
           <motion.div
             key={skill.name}
             variants={itemVariants}
             whileHover={{ scale: 1.08, y: -4 }}
-            className={`p-4 rounded-lg backdrop-blur-md border-2 text-center cursor-pointer transition-all ${
+            className={`p-5 rounded-2xl backdrop-blur-xl border-2 text-center cursor-pointer transition-all shadow-lg ${
               isDark
-                ? 'bg-slate-800/40 border-cyan-500/30 hover:border-cyan-400 hover:bg-slate-800/60'
-                : 'bg-blue-50/40 border-blue-300/30 hover:border-blue-400 hover:bg-blue-100/60'
+                ? 'bg-slate-800/60 border-cyan-500/20 hover:border-cyan-400 hover:bg-slate-800/80 hover:shadow-cyan-500/20'
+                : 'bg-white/60 border-blue-300/20 hover:border-blue-400 hover:bg-white/80 hover:shadow-blue-400/20'
             }`}
           >
             <Code size={20} className="mx-auto mb-2 opacity-70" />
             <p
-              className={`text-sm font-semibold ${
+              className={`text-sm font-bold ${
                 isDark ? 'text-cyan-300' : 'text-blue-700'
               }`}
             >
@@ -381,25 +381,26 @@ const ProjectsShowcase: React.FC<ProjectsProps> = ({ isDark }) => (
           <motion.div
             key={project.id}
             variants={itemVariants}
-            className={`rounded-2xl overflow-hidden backdrop-blur-md border-2 transition-all ${
+            whileHover={{ y: -8 }}
+            className={`rounded-3xl overflow-hidden backdrop-blur-xl border-2 transition-all shadow-xl ${
               isDark
-                ? 'bg-slate-800/30 border-cyan-500/20 hover:border-cyan-400 hover:bg-slate-800/50'
-                : 'bg-white/50 border-blue-300/30 hover:border-blue-400 hover:bg-white/70'
+                ? 'bg-slate-800/50 border-cyan-500/20 hover:border-cyan-400 hover:bg-slate-800/70 hover:shadow-cyan-500/20'
+                : 'bg-white/70 border-blue-300/20 hover:border-blue-400 hover:bg-white/90 hover:shadow-blue-400/20'
             }`}
           >
             {/* Project Image */}
             <motion.div
               whileHover={{ scale: 1.05 }}
-              className="h-48 overflow-hidden bg-gradient-to-br from-slate-700 to-slate-900 relative"
+              className="h-52 overflow-hidden bg-gradient-to-br from-slate-700 to-slate-900 relative"
             >
               <img
                 src={project.image}
                 alt={project.title}
-                className="w-full h-full object-cover opacity-70"
+                className="w-full h-full object-cover opacity-80"
               />
               <div
                 className={`absolute inset-0 ${
-                  isDark ? 'bg-cyan-950/20' : 'bg-blue-950/20'
+                  isDark ? 'bg-cyan-950/30' : 'bg-blue-950/30'
                 }`}
               />
             </motion.div>
@@ -503,10 +504,10 @@ const BottomNav: React.FC<BottomNavProps> = ({ isDark, activeTab, onTabChange })
     <motion.nav
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
-      className={`fixed bottom-0 left-0 right-0 z-50 backdrop-blur-lg border-t ${
+      className={`fixed bottom-0 left-0 right-0 z-50 backdrop-blur-xl border-t shadow-xl ${
         isDark
-          ? 'bg-slate-900/80 border-cyan-500/20'
-          : 'bg-white/80 border-gray-300/20'
+          ? 'bg-slate-900/90 border-cyan-500/30'
+          : 'bg-white/90 border-gray-300/30'
       }`}
     >
       <div className="max-w-4xl mx-auto px-4">
@@ -528,13 +529,13 @@ const BottomNav: React.FC<BottomNavProps> = ({ isDark, activeTab, onTabChange })
               }`}
             >
               <Icon size={20} />
-              <span className="text-xs font-semibold hidden sm:block">{label}</span>
+              <span className="text-xs font-bold hidden sm:block">{label}</span>
 
               {activeTab === id && (
                 <motion.div
                   layoutId="bottomNavIndicator"
-                  className={`absolute bottom-0 left-0 right-0 h-1 ${
-                    isDark ? 'bg-cyan-400' : 'bg-blue-600'
+                  className={`absolute bottom-0 left-0 right-0 h-1 rounded-t-full ${
+                    isDark ? 'bg-cyan-400 shadow-lg shadow-cyan-400/50' : 'bg-blue-600 shadow-lg shadow-blue-600/50'
                   }`}
                 />
               )}
