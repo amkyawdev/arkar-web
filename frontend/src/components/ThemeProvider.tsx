@@ -7,7 +7,12 @@ interface ThemeContextType {
   toggleTheme: () => void;
 }
 
-const ThemeContext = createContext<ThemeContextType | undefined>(undefined);
+const defaultThemeContext: ThemeContextType = {
+  isDark: true,
+  toggleTheme: () => {},
+};
+
+const ThemeContext = createContext<ThemeContextType>(defaultThemeContext);
 
 export function useTheme() {
   return useContext(ThemeContext);
@@ -19,10 +24,8 @@ interface ThemeProviderProps {
 
 export function ThemeProvider({ children }: ThemeProviderProps) {
   const [isDark, setIsDark] = useState(true);
-  const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
-    setMounted(true);
     const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
     setIsDark(prefersDark);
   }, []);
@@ -30,11 +33,6 @@ export function ThemeProvider({ children }: ThemeProviderProps) {
   const toggleTheme = () => {
     setIsDark(!isDark);
   };
-
-  // Return default values during SSR/static generation
-  if (!mounted) {
-    return <>{children}</>;
-  }
 
   return (
     <ThemeContext.Provider value={{ isDark, toggleTheme }}>
