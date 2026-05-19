@@ -17,7 +17,6 @@ import {
   User,
   Sun,
   Moon,
-  ChevronDown,
 } from 'lucide-react';
 
 // ============================================================================
@@ -144,8 +143,8 @@ const Header: React.FC<HeaderProps> = ({ isDark, onThemeToggle }) => (
     animate={{ opacity: 1, y: 0 }}
     className={`fixed top-0 left-0 right-0 z-40 border-b ${
       isDark
-        ? 'bg-slate-900 border-cyan-500/30'
-        : 'bg-white border-gray-300'
+        ? 'bg-gray-900 border-violet-500/40'
+        : 'bg-white border-violet-200'
     }`}
   >
     <div className="max-w-4xl mx-auto px-4 py-3 flex items-center justify-between">
@@ -156,16 +155,16 @@ const Header: React.FC<HeaderProps> = ({ isDark, onThemeToggle }) => (
       >
         <div
           className={`w-10 h-10 rounded-full border-2 ${
-            isDark ? 'border-cyan-500 bg-cyan-600' : 'border-blue-500 bg-blue-600'
+            isDark ? 'border-violet-500 bg-violet-600' : 'border-violet-500 bg-violet-600'
           } flex items-center justify-center font-bold text-sm text-white`}
         >
           A
         </div>
         <div className="hidden sm:block">
-          <p className={`font-mono text-sm font-bold ${isDark ? 'text-cyan-400' : 'text-blue-600'}`}>
+          <p className={`font-mono text-sm font-bold ${isDark ? 'text-violet-400' : 'text-violet-600'}`}>
             Arkar
           </p>
-          <p className={`text-xs ${isDark ? 'text-slate-400' : 'text-gray-600'}`}>
+          <p className={`text-xs ${isDark ? 'text-gray-400' : 'text-gray-500'}`}>
             Full Stack Developer
           </p>
         </div>
@@ -178,8 +177,8 @@ const Header: React.FC<HeaderProps> = ({ isDark, onThemeToggle }) => (
         onClick={onThemeToggle}
         className={`p-2 rounded-lg transition-colors ${
           isDark
-            ? 'bg-slate-800 hover:bg-slate-700 text-cyan-400'
-            : 'bg-gray-100 hover:bg-gray-200 text-yellow-600'
+            ? 'bg-gray-800 hover:bg-gray-700 text-violet-400'
+            : 'bg-gray-100 hover:bg-gray-200 text-orange-500'
         }`}
       >
         {isDark ? <Sun size={18} /> : <Moon size={18} />}
@@ -199,23 +198,23 @@ const HeroSection: React.FC<HeroSectionProps> = ({ isDark }) => (
     initial="hidden"
     animate="visible"
     className={`pt-28 pb-12 px-4 text-center ${
-      isDark ? 'bg-slate-900' : 'bg-white'
+      isDark ? 'bg-gray-900' : 'bg-white'
     }`}
   >
     <motion.div className="mb-6">
       <h1
         className={`text-4xl sm:text-5xl font-bold mb-2 ${
-          isDark ? 'text-white' : 'text-slate-900'
+          isDark ? 'text-white' : 'text-gray-900'
         }`}
       >
         {isDark ? (
           <>
-            BUILD <span className="text-cyan-400">AMAZING</span>
+            BUILD <span className="text-violet-400">AMAZING</span>
             <br /> WEB EXPERIENCES
           </>
         ) : (
           <>
-            CRAVE <span className="text-blue-600">CREATIVE</span>
+            CRAVE <span className="text-violet-600">CREATIVE</span>
             <br /> SOLUTIONS
           </>
         )}
@@ -225,7 +224,7 @@ const HeroSection: React.FC<HeroSectionProps> = ({ isDark }) => (
     <motion.p
       variants={itemVariants}
       className={`text-base sm:text-lg max-w-2xl mx-auto mb-8 ${
-        isDark ? 'text-slate-300' : 'text-gray-600'
+        isDark ? 'text-gray-300' : 'text-gray-600'
       }`}
     >
       Building powerful web applications with modern technologies. 
@@ -242,8 +241,8 @@ const HeroSection: React.FC<HeroSectionProps> = ({ isDark }) => (
         whileTap={{ scale: 0.95 }}
         className={`px-8 py-3 rounded-lg font-semibold border-2 transition-colors ${
           isDark
-            ? 'bg-cyan-600 border-cyan-500 text-white hover:bg-cyan-500'
-            : 'bg-blue-600 border-blue-500 text-white hover:bg-blue-500'
+            ? 'bg-violet-600 border-violet-500 text-white hover:bg-violet-500'
+            : 'bg-violet-600 border-violet-500 text-white hover:bg-violet-700'
         }`}
       >
         <div className="flex items-center gap-2">
@@ -257,7 +256,7 @@ const HeroSection: React.FC<HeroSectionProps> = ({ isDark }) => (
         whileTap={{ scale: 0.95 }}
         className={`px-8 py-3 rounded-lg font-semibold border-2 transition-colors ${
           isDark
-            ? 'bg-slate-700 border-slate-600 text-white hover:bg-slate-600'
+            ? 'bg-gray-700 border-gray-600 text-white hover:bg-gray-600'
             : 'bg-gray-200 border-gray-300 text-gray-700 hover:bg-gray-300'
         }`}
       >
@@ -274,9 +273,9 @@ const HeroSection: React.FC<HeroSectionProps> = ({ isDark }) => (
       transition={{ duration: 2, repeat: Infinity }}
       className="mt-16"
     >
-      <ChevronDown
+      <div
         size={24}
-        className={`mx-auto ${isDark ? 'text-cyan-500/50' : 'text-blue-500/50'}`}
+        className={`mx-auto text-violet-500 ${isDark ? 'opacity-50' : 'opacity-60'}`}
       />
     </motion.div>
   </motion.section>
@@ -292,14 +291,13 @@ const TechStack: React.FC<TechStackProps> = ({ isDark }) => (
     initial={{ opacity: 0 }}
     whileInView={{ opacity: 1 }}
     transition={{ duration: 0.8 }}
-    className={`py-12 px-4 ${isDark ? 'bg-slate-900' : 'bg-white'}`}
+    className={`py-12 px-4 ${isDark ? 'bg-gray-800' : 'bg-gray-50'}`}
   >
     <div className="max-w-4xl mx-auto">
       <motion.h2
         initial={{ opacity: 0, x: -20 }}
         whileInView={{ opacity: 1, x: 0 }}
-        className={`text-2xl font-black mb-8 ${isDark ? 'text-white' : 'text-slate-900'}`}
-        style={{ fontFamily: 'Space Mono, monospace' }}
+        className={`text-2xl font-bold mb-8 ${isDark ? 'text-white' : 'text-gray-900'}`}
       >
         TECH STACK
       </motion.h2>
@@ -317,19 +315,19 @@ const TechStack: React.FC<TechStackProps> = ({ isDark }) => (
             whileHover={{ scale: 1.05 }}
             className={`p-4 rounded-lg border text-center cursor-pointer transition-colors ${
               isDark
-                ? 'bg-slate-800 border-slate-700 hover:border-cyan-500'
-                : 'bg-white border-gray-200 hover:border-blue-500'
+                ? 'bg-gray-700 border-gray-600 hover:border-violet-400'
+                : 'bg-white border-gray-200 hover:border-violet-500'
             }`}
           >
             <Code size={20} className="mx-auto mb-2 opacity-70" />
             <p
               className={`text-sm font-semibold ${
-                isDark ? 'text-cyan-300' : 'text-blue-700'
+                isDark ? 'text-violet-300' : 'text-violet-700'
               }`}
             >
               {skill.name}
             </p>
-            <p className={`text-xs ${isDark ? 'text-slate-500' : 'text-gray-500'}`}>
+            <p className={`text-xs ${isDark ? 'text-gray-500' : 'text-gray-500'}`}>
               {skill.category}
             </p>
           </motion.div>
@@ -348,14 +346,13 @@ const ProjectsShowcase: React.FC<ProjectsProps> = ({ isDark }) => (
   <motion.section
     initial={{ opacity: 0 }}
     whileInView={{ opacity: 1 }}
-    className={`py-12 px-4 ${isDark ? 'bg-gradient-to-b from-slate-900 to-slate-950' : 'bg-gradient-to-b from-blue-50 to-white'}`}
+    className={`py-12 px-4 ${isDark ? 'bg-gray-900' : 'bg-white'}`}
   >
     <div className="max-w-4xl mx-auto">
       <motion.h2
         initial={{ opacity: 0, x: -20 }}
         whileInView={{ opacity: 1, x: 0 }}
-        className={`text-2xl font-black mb-8 ${isDark ? 'text-white' : 'text-slate-900'}`}
-        style={{ fontFamily: 'Space Mono, monospace' }}
+        className={`text-2xl font-bold mb-8 ${isDark ? 'text-white' : 'text-gray-900'}`}
       >
         PROJECTS
       </motion.h2>
@@ -373,14 +370,14 @@ const ProjectsShowcase: React.FC<ProjectsProps> = ({ isDark }) => (
             whileHover={{ y: -4 }}
             className={`rounded-xl overflow-hidden border transition-colors ${
               isDark
-                ? 'bg-slate-800 border-slate-700 hover:border-cyan-500'
-                : 'bg-white border-gray-200 hover:border-blue-500'
+                ? 'bg-gray-800 border-gray-700 hover:border-violet-400'
+                : 'bg-white border-gray-200 hover:border-violet-500'
             }`}
           >
             {/* Project Image */}
             <motion.div
               whileHover={{ scale: 1.02 }}
-              className="h-48 overflow-hidden bg-gradient-to-br from-slate-700 to-slate-900 relative"
+              className="h-48 overflow-hidden bg-gradient-to-br from-violet-800 to-purple-900"
             >
               <img
                 src={project.image}
@@ -393,7 +390,7 @@ const ProjectsShowcase: React.FC<ProjectsProps> = ({ isDark }) => (
             <div className="p-5">
               <h3
                 className={`text-lg font-semibold mb-2 ${
-                  isDark ? 'text-cyan-300' : 'text-blue-700'
+                  isDark ? 'text-violet-300' : 'text-violet-700'
                 }`}
               >
                 {project.title}
@@ -401,7 +398,7 @@ const ProjectsShowcase: React.FC<ProjectsProps> = ({ isDark }) => (
 
               <p
                 className={`text-sm mb-4 ${
-                  isDark ? 'text-slate-300' : 'text-gray-700'
+                  isDark ? 'text-gray-300' : 'text-gray-600'
                 }`}
               >
                 {project.description}
@@ -414,8 +411,8 @@ const ProjectsShowcase: React.FC<ProjectsProps> = ({ isDark }) => (
                     key={tool}
                     className={`text-xs px-2 py-1 rounded font-medium ${
                       isDark
-                        ? 'bg-slate-700 text-cyan-300'
-                        : 'bg-blue-100 text-blue-700'
+                        ? 'bg-gray-700 text-violet-300'
+                        : 'bg-violet-100 text-violet-700'
                     }`}
                   >
                     {tool}
@@ -433,8 +430,8 @@ const ProjectsShowcase: React.FC<ProjectsProps> = ({ isDark }) => (
                   rel="noopener noreferrer"
                   className={`flex-1 py-2 rounded-lg text-sm font-medium text-center transition-colors ${
                     isDark
-                      ? 'bg-cyan-600 text-white hover:bg-cyan-500'
-                      : 'bg-blue-600 text-white hover:bg-blue-500'
+                      ? 'bg-violet-600 text-white hover:bg-violet-500'
+                      : 'bg-violet-600 text-white hover:bg-violet-700'
                   }`}
                 >
                   <div className="flex items-center justify-center gap-2">
@@ -450,10 +447,10 @@ const ProjectsShowcase: React.FC<ProjectsProps> = ({ isDark }) => (
                     href={project.github}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className={`px-4 py-2 rounded-lg text-sm font-semibold text-center transition-all ${
+                    className={`px-4 py-2 rounded-lg text-sm font-medium text-center transition-colors ${
                       isDark
-                        ? 'bg-slate-700/60 border border-slate-600 text-slate-200 hover:bg-slate-600/60'
-                        : 'bg-gray-200/60 border border-gray-300 text-gray-700 hover:bg-gray-300/60'
+                        ? 'bg-gray-700 border border-gray-600 text-white hover:bg-gray-600'
+                        : 'bg-gray-200 border border-gray-300 text-gray-700 hover:bg-gray-300'
                     }`}
                   >
                     <Github size={14} />
@@ -489,8 +486,8 @@ const BottomNav: React.FC<BottomNavProps> = ({ isDark, activeTab, onTabChange })
       animate={{ opacity: 1, y: 0 }}
       className={`fixed bottom-0 left-0 right-0 z-50 border-t ${
         isDark
-          ? 'bg-slate-900 border-cyan-500/30'
-          : 'bg-white border-gray-300'
+          ? 'bg-gray-900 border-violet-500/30'
+          : 'bg-white border-violet-200'
       }`}
     >
       <div className="max-w-4xl mx-auto px-4">
@@ -504,11 +501,11 @@ const BottomNav: React.FC<BottomNavProps> = ({ isDark, activeTab, onTabChange })
               className={`py-3 px-5 flex flex-col items-center gap-1 transition-colors ${
                 activeTab === id
                   ? isDark
-                    ? 'text-cyan-400'
-                    : 'text-blue-600'
+                    ? 'text-violet-400'
+                    : 'text-violet-600'
                   : isDark
-                    ? 'text-slate-400 hover:text-cyan-300'
-                    : 'text-gray-600 hover:text-blue-600'
+                    ? 'text-gray-400 hover:text-violet-300'
+                    : 'text-gray-600 hover:text-violet-600'
               }`}
             >
               <Icon size={20} />
@@ -530,7 +527,7 @@ const Footer: React.FC<FooterProps> = ({ isDark }) => (
   <motion.footer
     initial={{ opacity: 0 }}
     whileInView={{ opacity: 1 }}
-    className={`pb-24 pt-12 px-4 ${isDark ? 'bg-slate-950' : 'bg-gray-50'}`}
+    className={`pb-24 pt-12 px-4 ${isDark ? 'bg-gray-950' : 'bg-gray-100'}`}
   >
     <div className="max-w-4xl mx-auto text-center">
       <motion.div
@@ -540,8 +537,7 @@ const Footer: React.FC<FooterProps> = ({ isDark }) => (
         className="mb-8"
       >
         <h3
-          className={`text-lg font-black mb-6 ${isDark ? 'text-white' : 'text-slate-900'}`}
-          style={{ fontFamily: 'Space Mono, monospace' }}
+          className={`text-lg font-bold mb-6 ${isDark ? 'text-white' : 'text-gray-900'}`}
         >
           LET'S CONNECT
         </h3>
@@ -559,10 +555,10 @@ const Footer: React.FC<FooterProps> = ({ isDark }) => (
               href={url}
               target="_blank"
               rel="noopener noreferrer"
-              className={`p-3 rounded-full backdrop-blur-md border-2 transition-all ${
+              className={`p-3 rounded-full border-2 transition-colors ${
                 isDark
-                  ? 'bg-slate-800/60 border-cyan-500/30 text-cyan-400 hover:border-cyan-400 hover:bg-slate-800/80'
-                  : 'bg-white/60 border-blue-300/30 text-blue-600 hover:border-blue-400 hover:bg-white/80'
+                  ? 'bg-gray-800 border-gray-700 text-violet-400 hover:border-violet-400 hover:bg-gray-700'
+                  : 'bg-white border-gray-200 text-violet-600 hover:border-violet-500 hover:bg-gray-100'
               }`}
               title={label}
             >
@@ -575,7 +571,7 @@ const Footer: React.FC<FooterProps> = ({ isDark }) => (
       <motion.p
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
-        className={`text-xs ${isDark ? 'text-slate-500' : 'text-gray-500'}`}
+        className={`text-xs ${isDark ? 'text-gray-500' : 'text-gray-500'}`}
       >
         © 2024 Arkar. All rights reserved.
       </motion.p>
