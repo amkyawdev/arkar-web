@@ -199,7 +199,7 @@ const HeroSection: React.FC<HeroSectionProps> = ({ isDark }) => (
     initial="hidden"
     animate="visible"
     className={`pt-28 pb-12 px-4 text-center ${
-      isDark ? 'bg-slate-950 to-slate-900' : 'bg-gradient-to-b from-white to-blue-50'
+      isDark ? 'bg-gradient-to-b from-slate-950 to-slate-900' : 'bg-gradient-to-b from-white to-blue-50'
     }`}
   >
     {/* Floating Accent */}
@@ -359,7 +359,7 @@ const ProjectsShowcase: React.FC<ProjectsProps> = ({ isDark }) => (
   <motion.section
     initial={{ opacity: 0 }}
     whileInView={{ opacity: 1 }}
-    className={`py-12 px-4 ${isDark ? 'bg-slate-900 to-slate-950' : 'bg-gradient-to-b from-blue-50 to-white'}`}
+    className={`py-12 px-4 ${isDark ? 'bg-gradient-to-b from-slate-900 to-slate-950' : 'bg-gradient-to-b from-blue-50 to-white'}`}
   >
     <div className="max-w-4xl mx-auto">
       <motion.h2
@@ -503,7 +503,7 @@ const BottomNav: React.FC<BottomNavProps> = ({ isDark, activeTab, onTabChange })
     <motion.nav
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
-      className={`fixed bottom-0 left-0 right-0 z-50 glass-container ${
+      className={`fixed bottom-0 left-0 right-0 z-50 backdrop-blur-lg border-t ${
         isDark
           ? 'bg-slate-900/80 border-cyan-500/20'
           : 'bg-white/80 border-gray-300/20'
