@@ -142,10 +142,10 @@ const Header: React.FC<HeaderProps> = ({ isDark, onThemeToggle }) => (
   <motion.header
     initial={{ opacity: 0, y: -20 }}
     animate={{ opacity: 1, y: 0 }}
-    className={`fixed top-0 left-0 right-0 z-40 backdrop-blur-xl border-b ${
+    className={`fixed top-0 left-0 right-0 z-40 border-b ${
       isDark
-        ? 'bg-slate-950/80 border-cyan-500/30 shadow-lg shadow-cyan-500/10'
-        : 'bg-white/80 border-gray-300/30 shadow-lg shadow-gray-300/20'
+        ? 'bg-slate-900 border-cyan-500/30'
+        : 'bg-white border-gray-300'
     }`}
   >
     <div className="max-w-4xl mx-auto px-4 py-3 flex items-center justify-between">
@@ -155,8 +155,8 @@ const Header: React.FC<HeaderProps> = ({ isDark, onThemeToggle }) => (
         className="flex items-center gap-3 cursor-pointer"
       >
         <div
-          className={`w-10 h-10 rounded-full border-2 shadow-lg ${
-            isDark ? 'border-cyan-500 bg-gradient-to-br from-cyan-500 to-blue-600' : 'border-blue-500 bg-gradient-to-br from-blue-500 to-blue-600'
+          className={`w-10 h-10 rounded-full border-2 ${
+            isDark ? 'border-cyan-500 bg-cyan-600' : 'border-blue-500 bg-blue-600'
           } flex items-center justify-center font-bold text-sm text-white`}
         >
           A
@@ -176,10 +176,10 @@ const Header: React.FC<HeaderProps> = ({ isDark, onThemeToggle }) => (
         whileHover={{ scale: 1.1 }}
         whileTap={{ scale: 0.95 }}
         onClick={onThemeToggle}
-        className={`p-2 rounded-xl backdrop-blur-xl transition-all shadow-lg ${
+        className={`p-2 rounded-lg transition-colors ${
           isDark
-            ? 'bg-slate-800/80 hover:bg-slate-700/80 text-cyan-400 hover:shadow-cyan-500/20'
-            : 'bg-white/80 hover:bg-gray-100/80 text-yellow-600 hover:shadow-yellow-500/20'
+            ? 'bg-slate-800 hover:bg-slate-700 text-cyan-400'
+            : 'bg-gray-100 hover:bg-gray-200 text-yellow-600'
         }`}
       >
         {isDark ? <Sun size={18} /> : <Moon size={18} />}
@@ -199,25 +199,14 @@ const HeroSection: React.FC<HeroSectionProps> = ({ isDark }) => (
     initial="hidden"
     animate="visible"
     className={`pt-28 pb-12 px-4 text-center ${
-      isDark ? 'bg-gradient-to-b from-slate-950 to-slate-900' : 'bg-gradient-to-b from-white to-blue-50'
+      isDark ? 'bg-slate-900' : 'bg-white'
     }`}
   >
-    {/* Floating Accent */}
-    <motion.div
-      variants={floatingVariants}
-      initial="initial"
-      animate="animate"
-      className={`w-32 h-32 rounded-full blur-3xl opacity-30 absolute top-20 right-10 ${
-        isDark ? 'bg-cyan-500' : 'bg-blue-400'
-      }`}
-    />
-
-    <motion.div className="relative z-10 mb-6">
+    <motion.div className="mb-6">
       <h1
-        className={`text-4xl sm:text-5xl font-black mb-2 leading-tight ${
+        className={`text-4xl sm:text-5xl font-bold mb-2 ${
           isDark ? 'text-white' : 'text-slate-900'
         }`}
-        style={{ fontFamily: 'Space Mono, monospace' }}
       >
         {isDark ? (
           <>
@@ -235,8 +224,8 @@ const HeroSection: React.FC<HeroSectionProps> = ({ isDark }) => (
 
     <motion.p
       variants={itemVariants}
-      className={`text-base sm:text-lg max-w-2xl mx-auto mb-8 leading-relaxed ${
-        isDark ? 'text-slate-300' : 'text-gray-700'
+      className={`text-base sm:text-lg max-w-2xl mx-auto mb-8 ${
+        isDark ? 'text-slate-300' : 'text-gray-600'
       }`}
     >
       Building powerful web applications with modern technologies. 
@@ -249,12 +238,12 @@ const HeroSection: React.FC<HeroSectionProps> = ({ isDark }) => (
       className="flex flex-col sm:flex-row gap-4 justify-center items-center"
     >
       <motion.button
-        whileHover={{ scale: 1.05, y: -2 }}
+        whileHover={{ scale: 1.05 }}
         whileTap={{ scale: 0.95 }}
-        className={`px-8 py-4 rounded-2xl font-bold backdrop-blur-xl border-2 transition-all shadow-lg ${
+        className={`px-8 py-3 rounded-lg font-semibold border-2 transition-colors ${
           isDark
-            ? 'bg-cyan-500/30 border-cyan-400 text-cyan-300 hover:bg-cyan-500/50 hover:shadow-cyan-500/30'
-            : 'bg-blue-500/30 border-blue-400 text-blue-600 hover:bg-blue-500/50 hover:shadow-blue-400/30'
+            ? 'bg-cyan-600 border-cyan-500 text-white hover:bg-cyan-500'
+            : 'bg-blue-600 border-blue-500 text-white hover:bg-blue-500'
         }`}
       >
         <div className="flex items-center gap-2">
@@ -264,12 +253,12 @@ const HeroSection: React.FC<HeroSectionProps> = ({ isDark }) => (
       </motion.button>
 
       <motion.button
-        whileHover={{ scale: 1.05, y: -2 }}
+        whileHover={{ scale: 1.05 }}
         whileTap={{ scale: 0.95 }}
-        className={`px-8 py-4 rounded-2xl font-bold backdrop-blur-xl border-2 transition-all shadow-lg ${
+        className={`px-8 py-3 rounded-lg font-semibold border-2 transition-colors ${
           isDark
-            ? 'bg-slate-700/60 border-slate-500 text-slate-200 hover:bg-slate-600/80 hover:shadow-slate-500/30'
-            : 'bg-gray-200/80 border-gray-300 text-gray-700 hover:bg-gray-300/80 hover:shadow-gray-400/30'
+            ? 'bg-slate-700 border-slate-600 text-white hover:bg-slate-600'
+            : 'bg-gray-200 border-gray-300 text-gray-700 hover:bg-gray-300'
         }`}
       >
         <div className="flex items-center gap-2">
@@ -319,22 +308,22 @@ const TechStack: React.FC<TechStackProps> = ({ isDark }) => (
         variants={containerVariants}
         initial="hidden"
         whileInView="visible"
-        className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4"
+        className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-3"
       >
         {TECH_SKILLS.map((skill) => (
           <motion.div
             key={skill.name}
             variants={itemVariants}
-            whileHover={{ scale: 1.08, y: -4 }}
-            className={`p-5 rounded-2xl backdrop-blur-xl border-2 text-center cursor-pointer transition-all shadow-lg ${
+            whileHover={{ scale: 1.05 }}
+            className={`p-4 rounded-lg border text-center cursor-pointer transition-colors ${
               isDark
-                ? 'bg-slate-800/60 border-cyan-500/20 hover:border-cyan-400 hover:bg-slate-800/80 hover:shadow-cyan-500/20'
-                : 'bg-white/60 border-blue-300/20 hover:border-blue-400 hover:bg-white/80 hover:shadow-blue-400/20'
+                ? 'bg-slate-800 border-slate-700 hover:border-cyan-500'
+                : 'bg-white border-gray-200 hover:border-blue-500'
             }`}
           >
             <Code size={20} className="mx-auto mb-2 opacity-70" />
             <p
-              className={`text-sm font-bold ${
+              className={`text-sm font-semibold ${
                 isDark ? 'text-cyan-300' : 'text-blue-700'
               }`}
             >
@@ -381,34 +370,29 @@ const ProjectsShowcase: React.FC<ProjectsProps> = ({ isDark }) => (
           <motion.div
             key={project.id}
             variants={itemVariants}
-            whileHover={{ y: -8 }}
-            className={`rounded-3xl overflow-hidden backdrop-blur-xl border-2 transition-all shadow-xl ${
+            whileHover={{ y: -4 }}
+            className={`rounded-xl overflow-hidden border transition-colors ${
               isDark
-                ? 'bg-slate-800/50 border-cyan-500/20 hover:border-cyan-400 hover:bg-slate-800/70 hover:shadow-cyan-500/20'
-                : 'bg-white/70 border-blue-300/20 hover:border-blue-400 hover:bg-white/90 hover:shadow-blue-400/20'
+                ? 'bg-slate-800 border-slate-700 hover:border-cyan-500'
+                : 'bg-white border-gray-200 hover:border-blue-500'
             }`}
           >
             {/* Project Image */}
             <motion.div
-              whileHover={{ scale: 1.05 }}
-              className="h-52 overflow-hidden bg-gradient-to-br from-slate-700 to-slate-900 relative"
+              whileHover={{ scale: 1.02 }}
+              className="h-48 overflow-hidden bg-gradient-to-br from-slate-700 to-slate-900 relative"
             >
               <img
                 src={project.image}
                 alt={project.title}
-                className="w-full h-full object-cover opacity-80"
-              />
-              <div
-                className={`absolute inset-0 ${
-                  isDark ? 'bg-cyan-950/30' : 'bg-blue-950/30'
-                }`}
+                className="w-full h-full object-cover"
               />
             </motion.div>
 
             {/* Project Content */}
-            <div className="p-6">
+            <div className="p-5">
               <h3
-                className={`text-xl font-bold mb-2 ${
+                className={`text-lg font-semibold mb-2 ${
                   isDark ? 'text-cyan-300' : 'text-blue-700'
                 }`}
               >
@@ -416,7 +400,7 @@ const ProjectsShowcase: React.FC<ProjectsProps> = ({ isDark }) => (
               </h3>
 
               <p
-                className={`text-sm mb-4 leading-relaxed ${
+                className={`text-sm mb-4 ${
                   isDark ? 'text-slate-300' : 'text-gray-700'
                 }`}
               >
@@ -424,34 +408,33 @@ const ProjectsShowcase: React.FC<ProjectsProps> = ({ isDark }) => (
               </p>
 
               {/* Tech Tags */}
-              <div className="flex flex-wrap gap-2 mb-6">
+              <div className="flex flex-wrap gap-2 mb-4">
                 {project.tools.map((tool) => (
-                  <motion.span
+                  <span
                     key={tool}
-                    whileHover={{ scale: 1.05 }}
-                    className={`text-xs px-3 py-1 rounded-full font-semibold backdrop-blur-md border transition-all ${
+                    className={`text-xs px-2 py-1 rounded font-medium ${
                       isDark
-                        ? 'bg-cyan-500/20 border-cyan-400/50 text-cyan-300'
-                        : 'bg-blue-500/20 border-blue-400/50 text-blue-700'
+                        ? 'bg-slate-700 text-cyan-300'
+                        : 'bg-blue-100 text-blue-700'
                     }`}
                   >
                     {tool}
-                  </motion.span>
+                  </span>
                 ))}
               </div>
 
               {/* Action Buttons */}
               <div className="flex gap-3">
                 <motion.a
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
+                  whileHover={{ scale: 1.02 }}
+                  whileTap={{ scale: 0.98 }}
                   href={project.link}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className={`flex-1 py-2 rounded-lg text-sm font-semibold text-center transition-all ${
+                  className={`flex-1 py-2 rounded-lg text-sm font-medium text-center transition-colors ${
                     isDark
-                      ? 'bg-cyan-500/20 border border-cyan-400 text-cyan-300 hover:bg-cyan-500/30'
-                      : 'bg-blue-500/20 border border-blue-400 text-blue-700 hover:bg-blue-500/30'
+                      ? 'bg-cyan-600 text-white hover:bg-cyan-500'
+                      : 'bg-blue-600 text-white hover:bg-blue-500'
                   }`}
                 >
                   <div className="flex items-center justify-center gap-2">
@@ -504,10 +487,10 @@ const BottomNav: React.FC<BottomNavProps> = ({ isDark, activeTab, onTabChange })
     <motion.nav
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
-      className={`fixed bottom-0 left-0 right-0 z-50 backdrop-blur-xl border-t shadow-xl ${
+      className={`fixed bottom-0 left-0 right-0 z-50 border-t ${
         isDark
-          ? 'bg-slate-900/90 border-cyan-500/30'
-          : 'bg-white/90 border-gray-300/30'
+          ? 'bg-slate-900 border-cyan-500/30'
+          : 'bg-white border-gray-300'
       }`}
     >
       <div className="max-w-4xl mx-auto px-4">
@@ -518,7 +501,7 @@ const BottomNav: React.FC<BottomNavProps> = ({ isDark, activeTab, onTabChange })
               onClick={() => onTabChange(id)}
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              className={`py-4 px-6 flex flex-col items-center gap-1 transition-all relative ${
+              className={`py-3 px-5 flex flex-col items-center gap-1 transition-colors ${
                 activeTab === id
                   ? isDark
                     ? 'text-cyan-400'
@@ -529,16 +512,7 @@ const BottomNav: React.FC<BottomNavProps> = ({ isDark, activeTab, onTabChange })
               }`}
             >
               <Icon size={20} />
-              <span className="text-xs font-bold hidden sm:block">{label}</span>
-
-              {activeTab === id && (
-                <motion.div
-                  layoutId="bottomNavIndicator"
-                  className={`absolute bottom-0 left-0 right-0 h-1 rounded-t-full ${
-                    isDark ? 'bg-cyan-400 shadow-lg shadow-cyan-400/50' : 'bg-blue-600 shadow-lg shadow-blue-600/50'
-                  }`}
-                />
-              )}
+              <span className="text-xs font-medium hidden sm:block">{label}</span>
             </motion.button>
           ))}
         </div>
