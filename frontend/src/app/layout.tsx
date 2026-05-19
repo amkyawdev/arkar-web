@@ -1,5 +1,6 @@
 import type { Metadata, Viewport } from 'next';
 import { ThemeProvider } from '@/components/ThemeProvider';
+import GlobalStyles from '@/components/GlobalStyles';
 
 export const metadata: Metadata = {
   title: 'Your Name - Full Stack Developer',

@@ -624,37 +624,6 @@ export default function PortfolioPage() {
 
   return (
     <div className={isDark ? 'bg-slate-950 text-white' : 'bg-white text-slate-900'}>
-      {/* Global Styles */}
-      <style>{`
-        @import url('https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Inter:wght@400;500;600;700;800;900&display=swap');
-        
-        * {
-          font-family: 'Inter', sans-serif;
-        }
-        
-        h1, h2, h3, h4, h5, h6 {
-          font-family: 'Space Mono', monospace;
-        }
-
-        /* Custom Scrollbar */
-        ::-webkit-scrollbar {
-          width: 8px;
-        }
-
-        ::-webkit-scrollbar-track {
-          background: ${isDark ? '#0f172a' : '#f9fafb'};
-        }
-
-        ::-webkit-scrollbar-thumb {
-          background: ${isDark ? '#06b6d4' : '#3b82f6'};
-          border-radius: 4px;
-        }
-
-        ::-webkit-scrollbar-thumb:hover {
-          background: ${isDark ? '#22d3ee' : '#2563eb'};
-        }
-      `}</style>
-
       <Header isDark={isDark} onThemeToggle={() => setIsDark(!isDark)} />
 
       <main>
