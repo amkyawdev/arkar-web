@@ -1,5 +1,9 @@
+import { Inter, Space_Mono } from 'next/font/google';
 import type { Metadata, Viewport } from 'next';
 import { ThemeProvider } from '@/components/ThemeProvider';
+
+const inter = Inter({ subsets: ['latin'], variable: '--font-inter' });
+const spaceMono = Space_Mono({ weight: ['400', '700'], subsets: ['latin'], variable: '--font-space-mono' });
 
 export const metadata: Metadata = {
   title: 'Your Name - Full Stack Developer',
@@ -28,13 +32,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en">
-      <head>
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-        <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
-      </head>
-      <body className="bg-slate-950 text-white">
+    <html lang="en" className={`${inter.variable} ${spaceMono.variable}`}>
+      <body className="bg-slate-950 text-white font-sans">
         <ThemeProvider>{children}</ThemeProvider>
       </body>
     </html>
