@@ -1,10 +1,10 @@
-import type { Metadata } from 'next';
+import type { Metadata, Viewport } from 'next';
 import '@/styles/globals.css';
+import { ThemeProvider } from '@/components/ThemeProvider';
 
 export const metadata: Metadata = {
   title: 'Your Name - Full Stack Developer',
   description: 'Personal portfolio showcasing my projects and skills',
-  viewport: 'width=device-width, initial-scale=1, maximum-scale=1',
   manifest: '/manifest.json',
   icons: {
     icon: '/favicon.svg',
@@ -17,6 +17,12 @@ export const metadata: Metadata = {
   },
 };
 
+export const viewport: Viewport = {
+  width: 'device-width',
+  initialScale: 1,
+  maximumScale: 1,
+};
+
 export default function RootLayout({
   children,
 }: {
@@ -24,7 +30,9 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className="bg-slate-950 text-white">{children}</body>
+      <body className="bg-slate-950 text-white">
+        <ThemeProvider>{children}</ThemeProvider>
+      </body>
     </html>
   );
 }
