@@ -252,8 +252,14 @@ a.btn:hover::before {
   transition: background var(--transition-fast);
 }
 
-::-webkit-scrollbar-thumb:hover {
-  background: var(--color-accent-cyan);
+/* Override Framer Motion animations - show all content immediately */
+* {
+  opacity: 1 !important;
+  transform: none !important;
+}
+/* Mobile navigation */
+@media (max-width: 640px) {
+  body { padding-bottom: 5rem; }
 }
 
 .light-mode ::-webkit-scrollbar-track {
@@ -418,4 +424,10 @@ a.btn:hover::before {
   .hidden-print {
     display: none !important;
   }
+}
+
+/* Override Framer Motion animations - show all content */
+* {
+  opacity: 1 !important;
+  transform: none !important;
 }
