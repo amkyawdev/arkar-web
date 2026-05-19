@@ -212,7 +212,7 @@ const HeroSection: React.FC<HeroSectionProps> = ({ isDark }) => (
       }`}
     />
 
-    <motion.div variants={itemVariants} className="relative z-10 mb-6">
+    <motion.div className="relative z-10 mb-6">
       <h1
         className={`text-4xl sm:text-5xl font-black mb-2 leading-tight ${
           isDark ? 'text-white' : 'text-slate-900'
