@@ -355,6 +355,99 @@ interface ProjectsProps {
   isDark: boolean;
 }
 
+
+// ============================================================================
+// ANALYTICS SECTION
+// ============================================================================
+
+interface AnalyticsSectionProps {
+  isDark: boolean;
+}
+
+const AnalyticsSection: React.FC<AnalyticsSectionProps> = ({ isDark }) => (
+  <motion.section
+    initial={{ opacity: 0 }}
+    animate={{ opacity: 1 }}
+    className="pt-24 pb-32 px-4"
+  >
+    <div className="max-w-4xl mx-auto">
+      <h2 className={`text-3xl font-bold mb-8 ${isDark ? 'text-cyan-400' : 'text-blue-600'}`}>
+        Analytics Dashboard
+      </h2>
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+        {[
+          { label: 'Total Visits', value: '1,234', change: '+12%' },
+          { label: 'Page Views', value: '5,678', change: '+8%' },
+          { label: 'Unique Users', value: '890', change: '+15%' },
+        ].map((stat, i) => (
+          <motion.div
+            key={i}
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: i * 0.1 }}
+            className={`p-6 rounded-xl backdrop-blur-lg border ${
+              isDark
+                ? 'bg-slate-800/60 border-cyan-500/20'
+                : 'bg-white/60 border-blue-300/30'
+            }`}
+          >
+            <p className={`text-sm ${isDark ? 'text-slate-400' : 'text-gray-600'}`}>
+              {stat.label}
+            </p>
+            <p className={`text-3xl font-bold mt-2 ${isDark ? 'text-cyan-400' : 'text-blue-600'}`}>
+              {stat.value}
+            </p>
+            <p className="text-green-500 text-sm mt-2">{stat.change}</p>
+          </motion.div>
+        ))}
+      </div>
+    </div>
+  </motion.section>
+);
+
+// ============================================================================
+// PROFILE SECTION
+// ============================================================================
+
+interface ProfileSectionProps {
+  isDark: boolean;
+}
+
+const ProfileSection: React.FC<ProfileSectionProps> = ({ isDark }) => (
+  <motion.section
+    initial={{ opacity: 0 }}
+    animate={{ opacity: 1 }}
+    className="pt-24 pb-32 px-4"
+  >
+    <div className="max-w-4xl mx-auto">
+      <h2 className={`text-3xl font-bold mb-8 ${isDark ? 'text-cyan-400' : 'text-blue-600'}`}>
+        My Profile
+      </h2>
+      <div className={`p-8 rounded-xl backdrop-blur-lg border ${
+        isDark
+          ? 'bg-slate-800/60 border-cyan-500/20'
+          : 'bg-white/60 border-blue-300/30'
+      }`}>
+        <div className="flex items-center gap-6 mb-6">
+          <div className={`w-20 h-20 rounded-full border-4 ${
+            isDark ? 'border-cyan-500 bg-slate-800' : 'border-blue-500 bg-blue-50'
+          } flex items-center justify-center text-2xl font-bold`}>
+            A
+          </div>
+          <div>
+            <h3 className="text-xl font-bold">Your Name</h3>
+            <p className={isDark ? 'text-slate-400' : 'text-gray-600'}>Full Stack Developer</p>
+          </div>
+        </div>
+        <p className={isDark ? 'text-slate-300' : 'text-gray-700'}>
+          Passionate full-stack developer with experience in React, Next.js, TypeScript, and modern web technologies. 
+          Building beautiful, interactive experiences is what I do best.
+        </p>
+      </div>
+    </div>
+  </motion.section>
+);
+
 const ProjectsShowcase: React.FC<ProjectsProps> = ({ isDark }) => (
   <motion.section
     initial={{ opacity: 0 }}
@@ -627,10 +720,12 @@ export default function PortfolioPage() {
       <Header isDark={isDark} onThemeToggle={() => setIsDark(!isDark)} />
 
       <main>
-        <HeroSection isDark={isDark} />
-        <TechStack isDark={isDark} />
-        <ProjectsShowcase isDark={isDark} />
-        <Footer isDark={isDark} />
+        {activeTab === 'home' && <HeroSection isDark={isDark} />}
+        {activeTab === 'home' && <TechStack isDark={isDark} />}
+        {activeTab === 'projects' && <ProjectsShowcase isDark={isDark} />}
+        {activeTab === 'analytics' && <AnalyticsSection isDark={isDark} />}
+        {activeTab === 'profile' && <ProfileSection isDark={isDark} />}
+        {activeTab === 'home' && <Footer isDark={isDark} />}
       </main>
 
       <BottomNav
