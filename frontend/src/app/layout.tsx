@@ -7,7 +7,7 @@ const inter = Inter({ subsets: ['latin'], variable: '--font-inter' });
 const spaceMono = Space_Mono({ weight: ['400', '700'], subsets: ['latin'], variable: '--font-space-mono' });
 
 export const metadata: Metadata = {
-  title: 'Your Name - Full Stack Developer',
+  title: 'Arkar - Full Stack Developer',
   description: 'Personal portfolio showcasing my projects and skills',
   manifest: '/manifest.json',
   icons: {
@@ -15,7 +15,7 @@ export const metadata: Metadata = {
     apple: '/favicon.svg',
   },
   openGraph: {
-    title: 'Your Name - Portfolio',
+    title: 'Arkar - Portfolio',
     description: 'Full stack developer specializing in modern web technologies',
     type: 'website',
   },

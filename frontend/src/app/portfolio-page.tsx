@@ -163,10 +163,10 @@ const Header: React.FC<HeaderProps> = ({ isDark, onThemeToggle }) => (
         </div>
         <div className="hidden sm:block">
           <p className={`font-mono text-sm font-bold ${isDark ? 'text-cyan-400' : 'text-blue-600'}`}>
-            Your Name
+            Arkar
           </p>
           <p className={`text-xs ${isDark ? 'text-slate-400' : 'text-gray-600'}`}>
-            Full Stack Dev
+            Full Stack Developer
           </p>
         </div>
       </motion.div>
@@ -221,13 +221,13 @@ const HeroSection: React.FC<HeroSectionProps> = ({ isDark }) => (
       >
         {isDark ? (
           <>
-            BUILD <span className="text-cyan-400">DIGITAL</span>
-            <br /> EXPERIENCES
+            BUILD <span className="text-cyan-400">AMAZING</span>
+            <br /> WEB EXPERIENCES
           </>
         ) : (
           <>
-            CREATE <span className="text-blue-600">AMAZING</span>
-            <br /> PRODUCTS
+            CRAVE <span className="text-blue-600">CREATIVE</span>
+            <br /> SOLUTIONS
           </>
         )}
       </h1>
@@ -239,8 +239,8 @@ const HeroSection: React.FC<HeroSectionProps> = ({ isDark }) => (
         isDark ? 'text-slate-300' : 'text-gray-700'
       }`}
     >
-      Full-stack developer crafting beautiful, interactive experiences. Specializing in
-      modern web technologies and user-centric design.
+      Building powerful web applications with modern technologies. 
+      Focusing on clean code, great user experience, and innovative solutions.
     </motion.p>
 
     {/* CTA Buttons */}
@@ -602,7 +602,7 @@ const Footer: React.FC<FooterProps> = ({ isDark }) => (
         whileInView={{ opacity: 1 }}
         className={`text-xs ${isDark ? 'text-slate-500' : 'text-gray-500'}`}
       >
-        © 2024 Your Name. All rights reserved.
+        © 2024 Arkar. All rights reserved.
       </motion.p>
     </div>
   </motion.footer>
