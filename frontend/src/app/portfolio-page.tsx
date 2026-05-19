@@ -214,20 +214,24 @@ const HeroSection: React.FC<HeroSectionProps> = ({ isDark }) => (
 
     <motion.div variants={itemVariants} className="relative z-10 mb-6">
       <h1
-        className={`text-4xl sm:text-5xl font-black mb-2 leading-tight ${
+        className={`text-3xl sm:text-4xl lg:text-5xl font-black mb-2 leading-tight ${
           isDark ? 'text-white' : 'text-slate-900'
         }`}
-        style={{ fontFamily: 'Space Mono, monospace' }}
+        style={{ fontFamily: 'Space Mono, monospace', wordBreak: 'break-word' }}
       >
         {isDark ? (
           <>
             BUILD <span className="text-cyan-400">DIGITAL</span>
-            <br /> EXPERIENCES
+            <br className="block sm:hidden" /> 
+            <span className="hidden sm:inline"> </span>
+            EXPERIENCES
           </>
         ) : (
           <>
             CREATE <span className="text-blue-600">AMAZING</span>
-            <br /> PRODUCTS
+            <br className="block sm:hidden" />
+            <span className="hidden sm:inline"> </span>
+            PRODUCTS
           </>
         )}
       </h1>
@@ -235,29 +239,28 @@ const HeroSection: React.FC<HeroSectionProps> = ({ isDark }) => (
 
     <motion.p
       variants={itemVariants}
-      className={`text-base sm:text-lg max-w-2xl mx-auto mb-8 leading-relaxed ${
+      className={`text-base sm:text-lg max-w-2xl mx-auto mb-8 px-4 leading-relaxed ${
         isDark ? 'text-slate-300' : 'text-gray-700'
       }`}
     >
-      Full-stack developer crafting beautiful, interactive experiences. Specializing in
-      modern web technologies and user-centric design.
+      Full-stack developer crafting beautiful, interactive digital experiences. I specialize in modern web technologies and user-centric design.
     </motion.p>
 
     {/* CTA Buttons */}
     <motion.div
       variants={itemVariants}
-      className="flex flex-col sm:flex-row gap-4 justify-center items-center"
+      className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center items-center px-4"
     >
       <motion.button
         whileHover={{ scale: 1.05, y: -2 }}
         whileTap={{ scale: 0.95 }}
-        className={`px-8 py-3 rounded-lg font-semibold backdrop-blur-md border-2 transition-all ${
+        className={`min-w-[140px] px-8 py-3 rounded-lg font-semibold backdrop-blur-md border-2 transition-all ${
           isDark
             ? 'bg-cyan-500/20 border-cyan-400 text-cyan-300 hover:bg-cyan-500/30'
             : 'bg-blue-500/20 border-blue-400 text-blue-600 hover:bg-blue-500/30'
         }`}
       >
-        <div className="flex items-center gap-2">
+        <div className="flex items-center justify-center gap-2">
           <Mail size={18} />
           Hire Me
         </div>
@@ -266,13 +269,13 @@ const HeroSection: React.FC<HeroSectionProps> = ({ isDark }) => (
       <motion.button
         whileHover={{ scale: 1.05, y: -2 }}
         whileTap={{ scale: 0.95 }}
-        className={`px-8 py-3 rounded-lg font-semibold backdrop-blur-md border-2 transition-all ${
+        className={`min-w-[140px] px-8 py-3 rounded-lg font-semibold backdrop-blur-md border-2 transition-all ${
           isDark
             ? 'bg-slate-800/60 border-slate-600 text-slate-200 hover:bg-slate-700/60'
             : 'bg-gray-200/60 border-gray-300 text-gray-700 hover:bg-gray-300/60'
         }`}
       >
-        <div className="flex items-center gap-2">
+        <div className="flex items-center justify-center gap-2">
           <Download size={18} />
           Resume
         </div>
